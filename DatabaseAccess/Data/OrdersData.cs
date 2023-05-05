@@ -15,7 +15,7 @@ namespace DatabaseAccess.Data
         public Task<IEnumerable<OrderModel>> GetOrders() =>
             _db.GetData<OrderModel, dynamic>("dbo.spOrders_GetAll", new { });
 
-        public async Task<IEnumerable<OrderModel?>> GetOrderByCustomerId(int customerId)
+        public async Task<IEnumerable<OrderModel?>> GetOrdersByCustomerId(int customerId)
         {
             var results = await _db.GetData<OrderModel, dynamic>(
                 "dbo.spOrders_GetByCustomerId",

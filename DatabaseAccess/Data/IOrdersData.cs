@@ -4,7 +4,7 @@ namespace DatabaseAccess.Data
 {
     public interface IOrdersData
     {
-        Task<IEnumerable<OrderModel?>> GetOrderByCustomerId(int customerId);
+        Task<IEnumerable<OrderModel?>> GetOrdersByCustomerId(int customerId);
         Task<IEnumerable<OrderModel>> GetOrders();
         Task InsertOrder(OrderModel order);
     }
