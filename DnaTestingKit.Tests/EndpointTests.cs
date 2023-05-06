@@ -31,9 +31,9 @@ namespace DnaTestingKit.Tests
             var orderModel = new List<OrderModel>();
             OrderModel order = new()
             {
-                CustomerId = 1,
+                CustomerId = 9999998,
                 Amount = 2,
-                DeliveryDate = DateTime.Parse("05.05.2023 20:58:01"),
+                DeliveryDate = DateTime.Parse("05.05.2023"),
                 Sum = 197.98
             };
             orderModel.Add(order);
@@ -41,7 +41,7 @@ namespace DnaTestingKit.Tests
             var webAppFactory = new WebApplicationFactory<Program>();
             var httpClient = webAppFactory.CreateDefaultClient();
 
-            var response = await httpClient.GetAsync($"/orders/{1}");
+            var response = await httpClient.GetAsync($"/orders/{9999998}");
             var responseText = await response.Content.ReadAsStringAsync();
             var orderResult = JsonSerializer.Deserialize<List<OrderModel>>(responseText, new JsonSerializerOptions
             {

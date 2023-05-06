@@ -69,4 +69,7 @@
   <ItemGroup>
     <None Include="DNATestingKitDB.publish.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment.sql" />
+  </ItemGroup>
 </Project>
