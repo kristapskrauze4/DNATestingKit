@@ -1,6 +1,7 @@
 using DatabaseAccess.Data;
 using DatabaseAccess.DbAccess;
 using DNATestingKit;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,3 +24,5 @@ app.UseHttpsRedirection();
 app.ConfigureApiEndpoints();
 
 app.Run();
+
+public partial class Program { }

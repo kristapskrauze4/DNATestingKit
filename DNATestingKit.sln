@@ -9,6 +9,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DNATestingKitDB", "DNATesti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseAccess", "DatabaseAccess\DatabaseAccess.csproj", "{BFE86C7E-2C89-41B3-814B-7E77A21255E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnaTestingKit.Tests", "DnaTestingKit.Tests\DnaTestingKit.Tests.csproj", "{9A6890A7-832D-4994-9049-4ECCDE052E8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{BFE86C7E-2C89-41B3-814B-7E77A21255E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFE86C7E-2C89-41B3-814B-7E77A21255E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFE86C7E-2C89-41B3-814B-7E77A21255E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A6890A7-832D-4994-9049-4ECCDE052E8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A6890A7-832D-4994-9049-4ECCDE052E8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A6890A7-832D-4994-9049-4ECCDE052E8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A6890A7-832D-4994-9049-4ECCDE052E8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

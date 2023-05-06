@@ -1,6 +1,7 @@
 ﻿using DatabaseAccess.AggragateModels;
 using DatabaseAccess.DbAccess;
 using DatabaseAccess.Models;
+using DNATestingKit.Models;
 
 namespace DatabaseAccess.Data
 {
@@ -36,13 +37,13 @@ namespace DatabaseAccess.Data
             return results;
         }
 
-        public async Task InsertOrder(OrderModel order)
+        public async Task InsertOrder(InsertOrderModel order)
         {
             ValidateOrder(order);
             await _db.Save("dbo.spOrders_Insert", new { order.CustomerId, order.Amount, order.DeliveryDate });
         }
 
-        private static void ValidateOrder(OrderModel order)
+        private static void ValidateOrder(InsertOrderModel order)
         {
             if (order == null)
             {

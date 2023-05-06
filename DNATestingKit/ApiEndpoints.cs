@@ -1,5 +1,6 @@
 ﻿using DatabaseAccess.Data;
 using DatabaseAccess.Models;
+using DNATestingKit.Models;
 
 namespace DNATestingKit
 {
@@ -17,7 +18,7 @@ namespace DNATestingKit
             {
                 var result = await data.GetOrdersByCustomerId(customerId);
 
-                if (result == null)
+                if (!result.Any())
                 {
                     return Results.NotFound();
                 }
@@ -34,7 +35,7 @@ namespace DNATestingKit
         {
             try
             {
-                var orderModel = new OrderModel()
+                var orderModel = new InsertOrderModel()
                 {
                     CustomerId = order.CustomerId,
                     Amount = order.Amount,
@@ -49,13 +50,5 @@ namespace DNATestingKit
                 return Results.Problem(ex.Message);
             }
         }
-
-        private class InsertOrderModel
-        {
-            public int CustomerId { get; set; }
-            public int Amount { get; set; }
-            public DateTime DeliveryDate { get; set; }
-        }
-
     }
 }
