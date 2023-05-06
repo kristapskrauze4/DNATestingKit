@@ -7,21 +7,8 @@ namespace DNATestingKit
     {
         public static void ConfigureApiEndpoints( this WebApplication app)
         {
-            app.MapGet("/Orders", GetOrders);
             app.MapGet("/Orders/{customerId}", GetOrdersByCustomerId);
             app.MapPost("/Orders", InsertOrder);
-        }
-
-        private static async Task<IResult> GetOrders(IOrdersData data)
-        {
-            try
-            {
-                return Results.Ok(await data.GetOrders());
-            }
-            catch (Exception ex)
-            {
-                return Results.Problem(ex.Message);
-            }
         }
 
         private static async Task<IResult> GetOrdersByCustomerId(int customerId, IOrdersData data)
@@ -43,11 +30,18 @@ namespace DNATestingKit
             }
         }
 
-        private static async Task<IResult> InsertOrder(OrderModel order, IOrdersData data)
+        private static async Task<IResult> InsertOrder(InsertOrderModel order, IOrdersData data)
         {
             try
             {
-                await data.InsertOrder(order);
+                var orderModel = new OrderModel()
+                {
+                    CustomerId = order.CustomerId,
+                    Amount = order.Amount,
+                    DeliveryDate = order.DeliveryDate
+                };
+
+                await data.InsertOrder(orderModel);
                 return Results.Ok();
             }
             catch (Exception ex)
@@ -55,5 +49,13 @@ namespace DNATestingKit
                 return Results.Problem(ex.Message);
             }
         }
+
+        private class InsertOrderModel
+        {
+            public int CustomerId { get; set; }
+            public int Amount { get; set; }
+            public DateTime DeliveryDate { get; set; }
+        }
+
     }
 }
