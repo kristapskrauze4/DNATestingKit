@@ -26,7 +26,7 @@ namespace DnaTestingKit.Tests
             Substitute.For<IOrdersData>();
 
         [Fact]
-        public async Task GetCustomerById_ReturnCustomer_WhenCustomerExists()
+        public async Task GetOrderByCustomerId_ReturnCustomer_WhenCustomerExists()
         {
             var orderModel = new List<OrderModel>();
             OrderModel order = new()
